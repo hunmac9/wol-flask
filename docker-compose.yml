@@ -1,0 +1,16 @@
+services:
+  wol-trigger:
+    build: ./wol-trigger
+    container_name: wol-trigger
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - NAS_MAC_ADDRESS= # required
+      - NAS_IP= # required
+      - NAS_PORT= # required
+      - NAS_SCHEME=http
+      - WOL_PORT=9
+      # - TZ=Your/Timezone
+
+      - REFRESH_DELAY_SECONDS=30  # Adjust browser refresh delay (seconds)
+      - QUICK_CHECK_TIMEOUT=0.5 # Adjust initial check timeout (seconds, use decimals)
